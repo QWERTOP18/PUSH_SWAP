@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:36:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 19:45:06 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:17:53 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	rotate(t_list *list)
 	{
 		return (1);
 	}
-	list->head = (list->head + 1) % list->size;
+	list->head = nextid(list);
 	return (0);
 }
 
@@ -52,7 +52,6 @@ int	rr(t_list *list_a, t_list *list_b)
 }
 
 #ifdef TEST_ROTATE
-
 int	main(int argc, char const *argv[])
 {
 	t_list	list;
@@ -77,5 +76,4 @@ int	main(int argc, char const *argv[])
 	free(list.data);
 	return (0);
 }
-
 #endif

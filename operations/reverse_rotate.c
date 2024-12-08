@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:36:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 19:44:47 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:17:47 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	reverse_rotate(t_list *list)
 	{
 		return (1);
 	}
-	list->head = (list->head - 1) % list->size;
+	list->head = previd(list);
 	return (0);
 }
 

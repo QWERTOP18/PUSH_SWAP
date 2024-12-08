@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:15 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:03:46 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:47:17 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 int	push(t_list *list_from, t_list *list_to)
 {
+	int	push_val;
+
 	if (list_from->size < 1)
 	{
 		return (1);
 	}
+	push_val = list_from->data[list_from->head];
+	lstmove_forward(list_from);
+	lstmove_backward(list_to);
+	list_from->data[list_from->head] = 0;
+	list_to->data[list_to->head] = push_val;
 	return (0);
 }
 

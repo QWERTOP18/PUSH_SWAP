@@ -6,16 +6,12 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:06:45 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 18:38:59 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:50:44 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cyclic_list.h"
 #include <stdio.h>
-
-#define SUCCESS 0
-#define ALLOCATE_ERROR 1
-#define INVALID_INPUT 2
 
 int	check_next_input(const char *next_input)
 {
@@ -61,14 +57,15 @@ int	compress_list(t_list *list_origin, t_list *list_a)
 {
 }
 
-int	allocate(t_list *list, int size)
-{
-	list->head = 0;
-	list->size = size;
-	list->head = malloc(sizeof(int) * list->size);
-	if (list->head == NULL)
-		return (ALLOCATE_ERROR);
-}
+// listutils file
+// int	allocate(t_list *list, int size)
+// {
+// 	list->head = 0;
+// 	list->size = size;
+// 	list->head = ft_calloc(sizeof(int), list->size);
+// 	if (list->head == NULL)
+// 		return (ALLOCATE_ERROR);
+// }
 
 int	main(int argc, char **argv)
 {
