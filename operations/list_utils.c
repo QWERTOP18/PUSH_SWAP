@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:59:05 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 21:23:50 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	lstalloc(t_list *list, int size)
 {
 	list->head = 0;
 	list->size = size;
+	// size maxsize
 	list->data = ft_calloc(sizeof(int), list->size);
 	if (list->data == NULL)
 		return (ALLOCATE_ERROR);
@@ -36,6 +37,8 @@ void	lstmove_forward(t_list *list)
 {
 	int	tmp_head;
 
+	if (list->size < 1)
+		return ;
 	tmp_head = list->head + 1;
 	while (tmp_head < list->size)
 	{
@@ -50,6 +53,8 @@ void	lstmove_backward(t_list *list)
 {
 	int	tmp_head;
 
+	if (list->size < 1)
+		return ;
 	tmp_head = list->size - 1;
 	while (tmp_head >= 0)
 	{

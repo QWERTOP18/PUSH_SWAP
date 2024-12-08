@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:15 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 21:17:00 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 21:24:16 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	push(t_list *list_from, t_list *list_to)
 	push_val = list_from->data[list_from->head];
 	lstmove_forward(list_from);
 	lstmove_backward(list_to);
-	list_from->data[list_from->head] = 0;
 	list_to->data[list_to->head] = push_val;
 	return (0);
 }
@@ -60,11 +59,22 @@ int	main(int argc, char const *argv[])
 	t_list	list_b;
 
 	lstalloc(&list_a, 3);
-	lstalloc(&list_b, 0);
+	lstalloc(&list_b, 3);
 	list_a.data[0] = 1;
 	list_a.data[1] = 2;
 	list_a.data[2] = 3;
+	list_b.size = 1;
+	for (int i = 0; i < list_a.size; i++)
+	{
+		printf("%d ", list_a.data[(list_a.head + i) % list_a.size]);
+	}
+	printf("\n");
 	pa(&list_a, &list_b);
+	for (int i = 0; i < list_a.size; i++)
+	{
+		printf("%d ", list_a.data[(list_a.head + i) % list_a.size]);
+	}
+	printf("\n");
 	pa(&list_a, &list_b);
 	for (int i = 0; i < list_a.size; i++)
 	{
