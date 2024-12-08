@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:06:45 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 18:28:12 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:38:59 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ int	parse_input(t_list *list, int argc, char **argv)
 	int	input_head;
 	int	next_number;
 
-	list->head = 0;
-	list->size = argc - 1;
-	list->head = malloc(sizeof(int) * list->size);
-	if (list->head == NULL)
-		return (ALLOCATE_ERROR);
 	input_head = 1;
 	while (input_head < list->size)
 	{
@@ -66,11 +61,28 @@ int	compress_list(t_list *list_origin, t_list *list_a)
 {
 }
 
+int	allocate(t_list *list, int size)
+{
+	list->head = 0;
+	list->size = size;
+	list->head = malloc(sizeof(int) * list->size);
+	if (list->head == NULL)
+		return (ALLOCATE_ERROR);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list *list_origin;
+	t_list *dict;   //最後に数字を復元させるための辞書
 	t_list *list_a; //座標圧縮されたあと
 	t_list *list_b;
+
+	if (allocate(list_origin, argc - 1))
+	{
+		printf("error\n");
+		return (1);
+	}
+
 	if (parse_input(list_origin, argc, argv))
 	{
 		printf("error\n");
