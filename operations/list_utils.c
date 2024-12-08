@@ -6,19 +6,20 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:50:45 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:59:05 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cyclic_list.h"
 
-int	lstallocate(t_list *list, int size)
+int	lstalloc(t_list *list, int size)
 {
 	list->head = 0;
 	list->size = size;
-	list->head = ft_calloc(sizeof(int), list->size);
-	if (list->head == NULL)
+	list->data = ft_calloc(sizeof(int), list->size);
+	if (list->data == NULL)
 		return (ALLOCATE_ERROR);
+	return (SUCCESS);
 }
 
 int	nextid(const t_list *list)

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:44:10 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:12:07 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:57:06 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	swap(t_list *list)
 		return (1);
 	}
 	id1 = list->head;
-	id2 = get_next_id(list);
+	id2 = nextid(list);
 	temp = list->data[id1];
 	list->data[id1] = list->data[id2];
 	list->data[id2] = temp;
