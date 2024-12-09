@@ -7,7 +7,7 @@ int	lstalloc(t_list *list, int size, int capacity)
 	list->capacity = capacity;
 	list->data = ft_calloc(sizeof(int), capacity);
 	if (list->data == NULL)
-		return (ALLOCATE_ERROR);
+		return (ALLOCATE_FAILURE);
 	return (SUCCESS);
 }
 
