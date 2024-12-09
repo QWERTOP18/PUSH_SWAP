@@ -12,16 +12,6 @@
 
 #include "cyclic_list.h"
 
-int	lstalloc(t_list *list, int size, int capacity)
-{
-	list->head = 0;
-	list->size = size;
-	list->capacity = capacity;
-	list->data = ft_calloc(sizeof(int), capacity);
-	if (list->data == NULL)
-		return (ALLOCATE_ERROR);
-	return (SUCCESS);
-}
 void	lstinsert(t_list *list, int element)
 {
 	int	insert_pos;
@@ -76,18 +66,18 @@ int	previd(const t_list *list)
 	return ((list->head + list->size - 1) % list->size);
 }
 
-void	print_list(t_list *list)
-{
-	int	index;
+// void	print_list(t_list *list)
+// {
+// 	int	index;
 
-	printf("List: ");
-	for (int i = 0; i < list->size; i++)
-	{
-		index = (list->head + i) % list->capacity;
-		printf("%d ", list->data[index]);
-	}
-	printf("\n");
-}
+// 	printf("List: ");
+// 	for (int i = 0; i < list->size; i++)
+// 	{
+// 		index = (list->head + i) % list->capacity;
+// 		printf("%d ", list->data[index]);
+// 	}
+// 	printf("\n");
+// }
 
 // int	main(void)
 // {
