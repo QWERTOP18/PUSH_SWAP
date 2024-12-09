@@ -33,10 +33,24 @@ typedef struct s_list
 
 }		t_list;
 
+/***** ***** ***** UTILS ****** ***** ****/
 int		nextid(const t_list *list);
 int		previd(const t_list *list);
 int		lstalloc(t_list *list, int size, int capacity);
 void    lstfree(t_list *list);
 void	lstinsert(t_list *list, int element);
 void	lstremove(t_list *list);
+
+/***** ***** ***** OPERATIONS ****** ***** ****/
+int	sa(t_list *list_a);
+int	sb(t_list *list_b);
+int	ss(t_list *list_a, t_list *list_b);
+int    pa(t_list *list_a, t_list *list_b);
+int    pb(t_list *list_a, t_list *list_b);
+int    ra(t_list *list_a);
+int    rb(t_list *list_b);
+int    rr(t_list *list_a,t_list *list_b);
+int    rra(t_list *list_a);
+int    rrb(t_list *list_b);
+int    rrr(t_list *list_a,t_list *list_b);
 #endif

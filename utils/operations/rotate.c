@@ -51,29 +51,29 @@ int	rr(t_list *list_a, t_list *list_b)
 	return (0);
 }
 
-#ifdef TEST_ROTATE
-int	main(int argc, char const *argv[])
-{
-	t_list	list;
+// #ifdef TEST_ROTATE
+// int	main(int argc, char const *argv[])
+// {
+// 	t_list	list;
 
-	list.head = 0;
-	list.size = 3;
-	list.data = malloc(sizeof(int) * list.size);
-	list.data[0] = 1;
-	list.data[1] = 2;
-	list.data[2] = 3;
-	for (int i = 0; i < list.size; i++)
-	{
-		printf("%d ", list.data[(list.head + i) % list.size]);
-	}
-	printf("\n");
-	ra(&list);
-	for (int i = 0; i < list.size; i++)
-	{
-		printf("%d ", list.data[(list.head + i) % list.size]);
-	}
-	printf("\n");
-	free(list.data);
-	return (0);
-}
-#endif
+// 	list.head = 0;
+// 	list.size = 3;
+// 	list.data = malloc(sizeof(int) * list.size);
+// 	list.data[0] = 1;
+// 	list.data[1] = 2;
+// 	list.data[2] = 3;
+// 	for (int i = 0; i < list.size; i++)
+// 	{
+// 		printf("%d ", list.data[(list.head + i) % list.size]);
+// 	}
+// 	printf("\n");
+// 	ra(&list);
+// 	for (int i = 0; i < list.size; i++)
+// 	{
+// 		printf("%d ", list.data[(list.head + i) % list.size]);
+// 	}
+// 	printf("\n");
+// 	free(list.data);
+// 	return (0);
+// }
+// #endif
