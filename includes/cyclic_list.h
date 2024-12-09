@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 17:58:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:50:41 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:35:51 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ typedef struct s_list
 	int	*data;
 	int	head;
 	int	size;
+	int	capacity;
 
 }		t_list;
 
 int		nextid(const t_list *list);
 int		previd(const t_list *list);
-void	lstmove_forward(t_list *list);
-void	lstmove_backward(t_list *list);
-
+int		lstalloc(t_list *list, int size, int capacity);
+void	lstinsert(t_list *list, int element);
+void	lstremove(t_list *list);
 #endif

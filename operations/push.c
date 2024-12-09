@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:15 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 21:24:16 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:40:40 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ int	push(t_list *list_from, t_list *list_to)
 		return (1);
 	}
 	push_val = list_from->data[list_from->head];
-	lstmove_forward(list_from);
-	lstmove_backward(list_to);
-	list_to->data[list_to->head] = push_val;
+	lstremove(list_from);
+	lstinsert(list_to, push_val);
 	return (0);
 }
 
@@ -58,8 +57,8 @@ int	main(int argc, char const *argv[])
 	t_list	list_a;
 	t_list	list_b;
 
-	lstalloc(&list_a, 3);
-	lstalloc(&list_b, 3);
+	lstalloc(&list_a, 3, 3);
+	lstalloc(&list_b, 0, 3);
 	list_a.data[0] = 1;
 	list_a.data[1] = 2;
 	list_a.data[2] = 3;
@@ -69,13 +68,13 @@ int	main(int argc, char const *argv[])
 		printf("%d ", list_a.data[(list_a.head + i) % list_a.size]);
 	}
 	printf("\n");
-	pa(&list_a, &list_b);
+	pb(&list_a, &list_b);
 	for (int i = 0; i < list_a.size; i++)
 	{
 		printf("%d ", list_a.data[(list_a.head + i) % list_a.size]);
 	}
 	printf("\n");
-	pa(&list_a, &list_b);
+	pb(&list_a, &list_b);
 	for (int i = 0; i < list_a.size; i++)
 	{
 		printf("%d ", list_a.data[(list_a.head + i) % list_a.size]);
@@ -85,7 +84,7 @@ int	main(int argc, char const *argv[])
 	{
 		printf("%d ", list_b.data[(list_b.head + i) % list_b.size]);
 	}
-	printf("\n");
+	printf("done\n");
 	free(list_a.data);
 	free(list_b.data);
 	return (0);
