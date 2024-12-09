@@ -35,6 +35,7 @@ t_err build(t_list *list_a, t_list *list_b)
     while (list_a->size)
     {
         calculate(list_a, list_b, &count);
+        //count = calculate(list_a, list_b); 
         err = handle_rotation(list_a, list_b, &count);
         err = pb(list_a, list_b);
     }
@@ -42,6 +43,7 @@ t_err build(t_list *list_a, t_list *list_b)
     {
         err = pa(list_a, list_b);
     }
+    //ra
 
 
     return (err);
