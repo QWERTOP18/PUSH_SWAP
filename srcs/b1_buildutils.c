@@ -64,14 +64,17 @@ t_err alignby_rotate(t_list *list)
     return err;
 }
 
-int check_sorted(t_list *list)
+int check_sorted(t_list *list, int head)
 {
+    if (list->size <= 1)
+        return (1);
+
     int i = 0;
     while (i < list->size - 1)
     {
-        if (list->data[i] > list->data[i + 1])
-            return (1);
+        if (list->data[(i+head)%list->size] > list->data[(i+head+1)%list->size])
+            return (0);
         i++;
     }
-    return (0);
+    return (1);
 }

@@ -24,14 +24,14 @@ typedef struct s_cnt
 /***** ***** ***** MAIN ****** ***** ****/
 
 t_err format(int argc, char **argv,int *size, char ***array);
-t_err    extract(t_list *list_a,t_list *list_b, int size, char **array);
+t_err  extract(t_list *list_a,t_list *list_b, int size, char **array);
 t_err build(t_list *list_a, t_list *list_b);
 void calculate(t_list *list_a, t_list *list_b,t_cnt *ret_cnt);
 int optimize_cnt(t_cnt *cnt);
 int find_insert_idx(t_list *list_a, t_list *list_b, int idx_a);
 
 /***** ***** ***** BUILD UTILS ****** ***** ****/
-int check_sorted(t_list *list);
+int check_sorted(t_list *list, int head);
 int select_direction(int idx, int list_size);
 t_err handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt);
 t_err alignby_rotate(t_list *list);
