@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:36:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:17:53 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:12:10 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	rb(t_list *list_b)
 }
 int	rr(t_list *list_a, t_list *list_b)
 {
-	if (ra(list_a) || rb(list_b))
+	if (rotate(list_a) || rotate(list_b))
 	{
 		return (1);
 	}
