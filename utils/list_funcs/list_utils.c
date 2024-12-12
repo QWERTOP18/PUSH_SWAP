@@ -6,13 +6,13 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:27:55 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:36:13 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cyclic_list.h"
 
-#ifdef DEBUG
+#ifdef TEST
 void	printlst(t_list *list)
 {
 	int	i;

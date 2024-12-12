@@ -64,7 +64,7 @@ int	check_sorted(t_list *list, int head)
 
 #ifdef TEST_UTILS
 # define DEBUG
-// cc ../utils/list_funcs/*.c  b1_buildutils.c -DTEST_UTILS -I../includes
+// cc ../utils/list_funcs/*.c  b*.c -DTEST_UTILS -I../includes
 
 int	main(int argc, char const *argv[])
 {

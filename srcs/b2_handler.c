@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:01:52 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:28:25 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:21:38 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	handle_pusha(t_list *list_a, t_list *list_b)
 	}
 }
 #ifdef TEST_HANDLER
-# define DEBUG
 
 int	main(int argc, char const *argv[])
 {
@@ -112,8 +111,7 @@ int	main(int argc, char const *argv[])
 #endif
 
 #ifdef TEST_PUSHB
-# define DEBUG
-// cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHB -I../includes
+// cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHB -DTEST -I../includes
 int	main(int argc, char const *argv[])
 {
 	t_list	list_a;
@@ -140,20 +138,23 @@ int	main(int argc, char const *argv[])
 #endif
 
 #ifdef TEST_PUSHA
-# define DEBUG
-// cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHA -I../includes
+// cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHA -DTEST -I../includes
 int	main(int argc, char const *argv[])
 {
 	t_list	list_a;
 	t_list	list_b;
 	int		size;
 
-	size = 6;
+	size = 10;
 	lstalloc(&list_a, size, size);
 	lstalloc(&list_b, 0, size);
+	// for (size_t i = 0; i < size; i++)
+	// {
+	// 	list_a.data[i] = (size - i);
+	// }
 	for (size_t i = 0; i < size; i++)
 	{
-		list_a.data[i] = i + 1; //(size - i + 1);
+		scanf("%d ", &list_a.data[i]);
 	}
 	printlst(&list_a);
 	printlst(&list_b);
@@ -161,6 +162,7 @@ int	main(int argc, char const *argv[])
 	printlst(&list_a);
 	printlst(&list_b);
 	handle_pusha(&list_a, &list_b);
+	alignby_rotate(&list_a);
 	printlst(&list_a);
 	printlst(&list_b);
 	lstfree(&list_a);
