@@ -1,34 +1,7 @@
 #include "push_swap.h"
-#include "error.h"
 
-// t_err build(t_list *list_a, t_list *list_b)
-// {
-//     t_cnt count;
-//     t_err err;
 
-//     if (check_sorted(list_a))
-//         return E_NONE;
-    
-
-//     // if (list_a->size <= 6)
-//     //     return(build_tinycase(list_a, list_b));
-//     // err = pb(list_a, list_b);
-//     // err = pb(list_a, list_b);
-//     while (list_a->size)
-//     {
-//         calculate(list_a, list_b, &count);
-//         //count = calculate(list_a, list_b); 
-//         err = handle_rotation(list_a, list_b, &count);
-//         err = pb(list_a, list_b);
-//     }
-//     while (list_b->size)
-//     {
-//         err = pa(list_a, list_b);
-//     }
-//     err = alignby_rotate(list_a);
-//     return (err);
-// }
-void handle_push_ab(t_list *list_a, t_list *list_b)
+void handle_pushb(t_list *list_a, t_list *list_b)
 {
     //3個残してpb 
     //余裕あればLISの計算
@@ -43,7 +16,7 @@ void handle_push_ab(t_list *list_a, t_list *list_b)
     sa(list_a);   
 }
 
-void handle_push_ba(t_list *list_a, t_list *list_b)
+void handle_pusha(t_list *list_a, t_list *list_b)
 {
     t_cnt count;
 
@@ -71,8 +44,8 @@ t_err build(t_list *list_a, t_list *list_b)
 
     if (check_sorted(list_a,list_a->head))
         return E_NONE;
-    handle_push_ab(list_a, list_b);
-    handle_push_ba(list_a, list_b);
+    handle_pushb(list_a, list_b);
+    handle_pusha(list_a, list_b);
     
     alignby_rotate(list_a);
     if (check_sorted(list_a,list_a->head))
@@ -80,3 +53,81 @@ t_err build(t_list *list_a, t_list *list_b)
     else
         return E_OPERATION;
 }
+
+
+#ifdef TEST_PUSHB
+#define DEBUG
+//cc ../utils/list_funcs/*.c  b1_*.c -DTEST_PUSHB -I../includes
+void printlst(t_list *list)
+{
+    printf("--->list<---\n");
+    for (size_t i = 0; i < list->size; i++)
+    {
+        printf("%d ",list->data[(list->head+i)%list->size]);
+    }
+    printf("\n");
+    
+}
+int main(int argc, char const *argv[])
+{
+    t_list list_a;
+    t_list list_b;
+    int size = 3;
+    lstalloc(&list_a,size,size);
+    lstalloc(&list_b,0,size);
+    for (size_t i = 0; i < size; i++)
+    {
+        list_a.data[i] = (i+7)%4;
+    }
+    sa(&list_a);
+    printlst(&list_a);
+    printlst(&list_b);
+
+    handle_pushb(&list_a,&list_b);
+    
+    printlst(&list_a);
+    printlst(&list_b);
+
+    lstfree(&list_a);
+    lstfree(&list_b);
+    return 0;
+}
+#endif
+
+#ifdef TEST_PUSHA
+#define DEBUG
+//cc ../utils/list_funcs/*.c  b1_*.c -DTEST_PUSHA -I../includes
+void printlst(t_list *list)
+{
+    printf("--->list<---\n");
+    for (size_t i = 0; i < list->size; i++)
+    {
+        printf("%d ",list->data[(list->head+i)%list->size]);
+    }
+    printf("\n");
+    
+}
+int main(int argc, char const *argv[])
+{
+    t_list list_a;
+    t_list list_b;
+    int size = 6;
+    lstalloc(&list_a,size,size);
+    lstalloc(&list_b,0,size);
+    for (size_t i = 0; i < size; i++)
+    {
+        list_a.data[i] = (size-i+1);
+    }
+    printlst(&list_a);
+    printlst(&list_b);
+    handle_pushb(&list_a,&list_b);
+    handle_pusha(&list_a,&list_b);
+    
+    printlst(&list_a);
+    printlst(&list_b);
+
+    lstfree(&list_a);
+    lstfree(&list_b);
+    return 0;
+}
+#endif

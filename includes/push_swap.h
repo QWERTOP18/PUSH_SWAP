@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 #include "cyclic_list.h"
+#include "error.h"
 #include <limits.h>
 typedef struct s_cnt
 {
@@ -33,6 +34,7 @@ int find_insert_idx(t_list *list_a, t_list *list_b, int idx_a);
 /***** ***** ***** BUILD UTILS ****** ***** ****/
 int check_sorted(t_list *list, int head);
 int select_direction(int idx, int list_size);
+
 t_err handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt);
 t_err alignby_rotate(t_list *list);
 

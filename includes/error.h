@@ -12,6 +12,6 @@ typedef enum s_err
     E_DUPLICATE_VALUE,
     // E_LIST_EMPTY,
     // E_LIST_FULL,
-}t_err;
+} t_err;
 
 #endif

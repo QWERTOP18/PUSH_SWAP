@@ -28,6 +28,7 @@ void cleanup(t_list *list_a,t_list *list_b,char **input_array)
         free_split(input_array);
 }
 
+#ifndef DEBUG
 int    main(int argc, char **argv)
 {
     t_list list_a; 
@@ -45,3 +46,4 @@ int    main(int argc, char **argv)
     cleanup(&list_a, &list_b, input_array);
     return (0);
 }
+#endif

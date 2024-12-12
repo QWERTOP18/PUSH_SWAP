@@ -1,6 +1,5 @@
 #include "push_swap.h"
-#include "error.h"
-#include <limits.h>
+
 int min(int a, int b)
 {
     if (a < b)
@@ -100,7 +99,7 @@ void calculate(t_list *list_a, t_list *list_b,t_cnt *ret_cnt)
     {
         tmp_cnt.a = find_insert_idx(list_a, list_b, idx_b);
         tmp_cnt.a = select_direction(idx_b,list_a->size);
-        tmp_cnt.b = setlect_direction(tmp_cnt.b,list_b->size);
+        tmp_cnt.b = select_direction(tmp_cnt.b,list_b->size);
         update_cnt(&tmp_cnt,ret_cnt);
         idx_b++;
     }
