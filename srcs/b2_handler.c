@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:01:52 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 16:21:38 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:39:26 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,16 +145,12 @@ int	main(int argc, char const *argv[])
 	t_list	list_b;
 	int		size;
 
-	size = 10;
+	size = 100;
 	lstalloc(&list_a, size, size);
 	lstalloc(&list_b, 0, size);
-	// for (size_t i = 0; i < size; i++)
-	// {
-	// 	list_a.data[i] = (size - i);
-	// }
 	for (size_t i = 0; i < size; i++)
 	{
-		scanf("%d ", &list_a.data[i]);
+		list_a.data[i] = i;
 	}
 	printlst(&list_a);
 	printlst(&list_b);
