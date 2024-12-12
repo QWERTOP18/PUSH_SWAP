@@ -1,0 +1,7 @@
+*.out
+*.pdf
+pft_2019/
+printfTester
+*.o
+*.a
+.vscode

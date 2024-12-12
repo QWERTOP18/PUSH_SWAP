@@ -1,0 +1,6 @@
+*.sh
+*.pdf
+*.o
+*.out
+*.txt
+libftTester

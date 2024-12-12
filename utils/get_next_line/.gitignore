@@ -1,0 +1,6 @@
+*.out
+*.pdf
+*.txt
+*.md
+.vscode
+gnlTester
