@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
-# include "cyclic_list.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "../utils/list_funcs/cyclic_list.h"
 # include <limits.h>
+# include "error.h"
 typedef struct s_cnt
 {
 	int	a;
@@ -22,20 +23,21 @@ typedef struct s_cnt
 }		t_cnt;
 
 /***** ***** ***** MAIN ****** ***** ****/
-t_list *format_input(int argc, char **argv);
-void	calculate(t_list *list_a, t_list *list_b, t_cnt *ret_cnt);
+void ft_exit(int status);
+t_clst *format_input(int argc, char **argv);
+void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
 int		optimize_cnt(t_cnt *cnt);
-int		find_insert_idx(t_list *list_a, t_list *list_b, int idx_a);
+int		find_insert_idx(t_clst *list_a, t_clst *list_b, int idx_a);
 
 /***** ***** ***** BUILD ****** ***** ****/
-void	handle_pusha(t_list *list_a, t_list *list_b);
-void	handle_pushb(t_list *list_a, t_list *list_b);
-t_err	handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt);
+void	handle_pusha(t_clst *list_a, t_clst *list_b);
+void	handle_pushb(t_clst *list_a, t_clst *list_b);
+t_err	handle_rotation(t_clst *list_a, t_clst *list_b, t_cnt *cnt);
 
 /***** ***** ***** BUILD UTILS ****** ***** ****/
-void	calculate(t_list *list_a, t_list *list_b, t_cnt *ret_cnt);
-int		check_sorted(t_list *list, int head);
+void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
+int		check_sorted(t_clst *list, int head);
 int		select_direction(int idx, int list_size);
-t_err	alignby_rotate(t_list *list);
+t_err	alignby_rotate(t_clst *list);
 
 #endif

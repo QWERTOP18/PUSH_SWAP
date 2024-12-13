@@ -14,7 +14,7 @@ int	select_direction(int idx, int list_size)
 /*
  *dist:= headと最小値までの距離
  */
-t_err	alignby_rotate(t_list *list)
+t_err	alignby_rotate(t_clst *list)
 {
 	t_err	err;
 	int		dist;
@@ -47,7 +47,7 @@ t_err	alignby_rotate(t_list *list)
 	return (err);
 }
 
-int	check_sorted(t_list *list, int head)
+int	check_sorted(t_clst *list, int head)
 {
 	int	i;
 
@@ -64,40 +64,5 @@ int	check_sorted(t_list *list, int head)
 	return (1);
 }
 
-#ifdef TEST_UTILS
-# define TEST
+
 // cc ../utils/list_funcs/*.c  b*.c -DTEST_UTILS -I../includes
-
-int	main(int argc, char const *argv[])
-{
-	t_list	list_a;
-	t_list	list_b;
-
-	lstalloc(&list_a, 5, 5);
-	lstalloc(&list_b, 0, 5);
-	for (size_t i = 0; i < 5; i++)
-	{
-		list_a.data[i] = (i + 2) % 5;
-	}
-	printlst(&list_a);
-	printlst(&list_b);
-	// pb(&list_a, &list_b);
-	// pb(&list_a, &list_b);
-	// pb(&list_a, &list_b);
-	// pb(&list_a, &list_b);
-	// pb(&list_a, &list_b);
-	// pa(&list_a, &list_b);
-	// pa(&list_a, &list_b);
-	// pa(&list_a, &list_b);
-	// pa(&list_a, &list_b);
-	// pa(&list_a, &list_b);
-	printf("check %d\n", check_sorted(&list_a, list_a.head));
-	alignby_rotate(&list_a);
-	printf("check %d\n", check_sorted(&list_a, list_a.head));
-	printlst(&list_a);
-	printlst(&list_b);
-	lstfree(&list_a);
-	lstfree(&list_b);
-	return (0);
-}
-#endif

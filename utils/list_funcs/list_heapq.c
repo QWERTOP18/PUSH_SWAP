@@ -1,9 +1,9 @@
 #include "cyclic_list.h"
-t_list *lst_alloc(int capa)
+t_clst *clst_new(int capa)
 {
-    t_list *newlst;
+    t_clst *newlst;
 
-    newlst = malloc(sizeof(t_list));
+    newlst = malloc(sizeof(t_clst));
     if (!newlst)
         return NULL;
 
@@ -20,7 +20,7 @@ t_list *lst_alloc(int capa)
 
     return newlst;
 }
-void lst_clear(t_list *lst)
+void clst_clear(t_clst *lst)
 {
     if (!lst)
         return;
@@ -29,7 +29,7 @@ void lst_clear(t_list *lst)
     lst = NULL;
 }
 
-// int	lstalloc(t_list *list, int size, int capacity)
+// int	lstalloc(t_clst *list, int size, int capacity)
 // {
 // 	list->head = 0;
 // 	list->size = size;
@@ -40,7 +40,7 @@ void lst_clear(t_list *lst)
 // 	return (SUCCESS);
 // }
 
-// void    lstfree(t_list *list)
+// void    lstfree(t_clst *list)
 // {
 //     free(list->data);
 //     list->data = NULL;

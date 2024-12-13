@@ -12,7 +12,7 @@
 
 #include "cyclic_list.h"
 
-int	push(t_list *list_from, t_list *list_to)
+int	push(t_clst *list_from, t_clst *list_to)
 {
 	int	push_val;
 
@@ -21,12 +21,12 @@ int	push(t_list *list_from, t_list *list_to)
 		return (1);
 	}
 	push_val = list_from->data[list_from->head];
-	lstremove(list_from);
-	lstinsert(list_to, push_val);
+	clst_remove(list_from);
+	clst_insert(list_to, push_val);
 	return (0);
 }
 
-int	pa(t_list *list_a, t_list *list_b)
+int	pa(t_clst *list_a, t_clst *list_b)
 {
 	if (push(list_b, list_a))
 	{
@@ -36,7 +36,7 @@ int	pa(t_list *list_a, t_list *list_b)
 	return (0);
 }
 
-int	pb(t_list *list_a, t_list *list_b)
+int	pb(t_clst *list_a, t_clst *list_b)
 {
 	if (push(list_a, list_b))
 	{
@@ -53,8 +53,8 @@ int	pb(t_list *list_a, t_list *list_b)
 // //(gdb) run
 // void test_push_operations()
 // {
-//     t_list list_a;
-//     t_list list_b;
+//     t_clst list_a;
+//     t_clst list_b;
 
 //     // リストを初期化
 //     lstalloc(&list_a, 3, 5); // 容量5, 初期サイズ3

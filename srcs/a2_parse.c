@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include "error.h"
 # include "ft_math.h"
-t_err	check_duplicate(const t_list *list)
+t_err	check_duplicate(const t_clst *list)
 {
 	int	id1;
 	int	id2;
@@ -21,16 +21,16 @@ t_err	check_duplicate(const t_list *list)
 	return (E_NONE);
 }
 
-t_err store_as_array(t_list *list_a,char **args)
+t_err store_as_array(t_clst *list_a,char **args)
 {
     int next_num;
 
     while(*args)
     {
         next_num = bijective_atoi(*args);
-        if(next_num==0 && *args!='0')
+        if(next_num==0 && ft_strncmp(*args,"0",ft_strlen(*args)))
         {
-            lst_free(list_a);
+            clst_clear(list_a);
             return E_INVALID_INPUT;
         }
         list_a->data[list_a->size++] = next_num; 
@@ -38,16 +38,17 @@ t_err store_as_array(t_list *list_a,char **args)
     return E_NONE;
 }
 
-t_list *format_input(int argc, char **argv)
+t_clst *format_input(int argc, char **argv)
 {
     char **args;
-    t_list *list_a;
+    t_clst *list_a;
+    list_a = NULL;
     if (argc==2)
     {
         args = ft_split(argv[1],' ');
         if (args==NULL)
             ft_exit(E_ALLOCATE);
-        list_a = lst_alloc(ft_count_words(argv[1],' '));
+        list_a = clst_new(ft_count_words(argv[1],' '));
         if (list_a==NULL)
             ft_exit(E_ALLOCATE);
         if(store_as_array(list_a,args))
@@ -56,40 +57,29 @@ t_list *format_input(int argc, char **argv)
     }
     else if(argc>2)
     {
-        list_a = lst_alloc(argc-1);
-        list_a = store_as_array(list_a,&argv[1]);
+        list_a = clst_new(argc-1);
+        if(store_as_array(list_a,&argv[1]))
+            ft_exit(E_INVALID_INPUT);
+    }
+    else
+    {
+        ft_exit(E_NONE);
     }
 	if (check_duplicate(list_a))
 		ft_exit(E_DUPLICATE_VALUE);
     return list_a;
 }
 
-
-
-// t_err format(int argc, char **argv,int *size, char ***array)
+// int main()
 // {
-// 	int ptr;
-// 	if (argc <2)
-// 		return (E_INVALID_INPUT);
-// 	else if (argc == 2)
-// 	{
-// 		*size = ft_count_words(argv[1]);
-// 		*array = ft_split(argv[1],' ');
-// 		if (!*array)
-// 		    return (E_ALLOCATE);
-// 		return (E_NONE);
-// 	}
-// 	*size = argc - 1;
-// 	*array = malloc(sizeof(char *) * (*size + 1));
-// 	if (!*array)
-// 		return (E_ALLOCATE);
-// 	ptr = 1;
-// 	while (ptr < argc)
-// 	{
-// 		(*array)[ptr] = ft_strdup(argv[ptr]);
-// 		if (!(*array)[ptr])
-// 			return (E_ALLOCATE);
-// 		ptr++;
-// 	}
-// 	return (E_NONE);
+//     t_clst *list_a;
+//     list_a = format_input(2, (char *[]){"1 2 3",NULL});
+//     // a1_main.c
+//     if(!list_a)
+//        ft_exit(E_ALLOCATE);
+//     if(build(list_a, NULL))
+//         ft_exit(E_OPERATION);
+//     clst_clear(list_a);
+//     return E_NONE;
+//     //ft_exit(E_NONE);
 // }

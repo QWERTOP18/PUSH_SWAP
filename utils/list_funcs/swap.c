@@ -12,7 +12,7 @@
 
 #include "cyclic_list.h"
 
-int	swap(t_list *list)
+int	swap(t_clst *list)
 {
 	int	id1;
 	int	id2;
@@ -30,7 +30,7 @@ int	swap(t_list *list)
 	return (0);
 }
 
-int	sa(t_list *list_a)
+int	sa(t_clst *list_a)
 {
 	if (swap(list_a))
 	{
@@ -40,7 +40,7 @@ int	sa(t_list *list_a)
 	return (0);
 }
 
-int	sb(t_list *list_b)
+int	sb(t_clst *list_b)
 {
 	if (swap(list_b))
 	{
@@ -50,7 +50,7 @@ int	sb(t_list *list_b)
 	return (0);
 }
 
-int	ss(t_list *list_a, t_list *list_b)
+int	ss(t_clst *list_a, t_clst *list_b)
 {
 	if (sa(list_a) || sb(list_b))
 	{
@@ -66,7 +66,7 @@ int	ss(t_list *list_a, t_list *list_b)
 
 // int	main(int argc, char const *argv[])
 // {
-// 	t_list	list;
+// 	t_clst	list;
 
 // 	list.head = 1;
 // 	list.size = 3;

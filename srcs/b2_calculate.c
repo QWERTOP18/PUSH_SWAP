@@ -26,7 +26,7 @@ int	optimize_cnt(t_cnt *cnt)
 	return (abs(cnt->a - cnt->b));
 }
 
-int	find_insert_idx(t_list *list_a, t_list *list_b, int idx_b)
+int	find_insert_idx(t_clst *list_a, t_clst *list_b, int idx_b)
 {
 	int	idx_a;
 	int	curr_a;
@@ -75,7 +75,7 @@ void	update_cnt(t_cnt *tmp, t_cnt *ret)
 	}
 }
 
-void	calculate(t_list *list_a, t_list *list_b, t_cnt *ret_cnt)
+void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt)
 {
 	int		idx_b;
 	t_cnt	tmp_cnt;
@@ -101,8 +101,8 @@ cc ../utils/list_funcs/*.c  b*.c -DTEST_CALCULATE -DTEST -I../includes
 */
 int	main(int argc, char const *argv[])
 {
-	t_list	list_a;
-	t_list	list_b;
+	t_clst	list_a;
+	t_clst	list_b;
 	int		size;
 
 	size = 10;

@@ -13,11 +13,10 @@
 #include "push_swap.h"
 #include "error.h"
 
-t_err	handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt)
+t_err	handle_rotation(t_clst *list_a, t_clst *list_b, t_cnt *cnt)
 {
 	t_err	err;
-
-	printf("handle_rotation a%d\tb%d\tr%d\n", cnt->a, cnt->b, cnt->r);
+	
 	if (cnt->r > 0)
 		while (cnt->r-- > 0)
 			err = rr(list_a, list_b);
@@ -42,7 +41,7 @@ t_err	handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt)
 	return (err);
 }
 
-void	handle_pushb(t_list *list_a, t_list *list_b)
+void	handle_pushb(t_clst *list_a, t_clst *list_b)
 {
 	// 3個残してpb
 	//余裕あればLISの計算
@@ -58,7 +57,7 @@ void	handle_pushb(t_list *list_a, t_list *list_b)
 	sa(list_a);
 }
 
-void	handle_pusha(t_list *list_a, t_list *list_b)
+void	handle_pusha(t_clst *list_a, t_clst *list_b)
 {
 	t_cnt	count;
 
@@ -74,8 +73,8 @@ void	handle_pusha(t_list *list_a, t_list *list_b)
 
 int	main(int argc, char const *argv[])
 {
-	t_list	list_a;
-	t_list	list_b;
+	t_clst	list_a;
+	t_clst	list_b;
 	t_cnt	cnt;
 	int		size;
 
@@ -115,8 +114,8 @@ int	main(int argc, char const *argv[])
 // cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHB -DTEST -I../includes
 int	main(int argc, char const *argv[])
 {
-	t_list	list_a;
-	t_list	list_b;
+	t_clst	list_a;
+	t_clst	list_b;
 	int		size;
 
 	size = 3;
@@ -142,8 +141,8 @@ int	main(int argc, char const *argv[])
 // cc ../utils/list_funcs/*.c  b*.c -DTEST_PUSHA -DTEST -I../includes
 int	main(int argc, char const *argv[])
 {
-	t_list	list_a;
-	t_list	list_b;
+	t_clst	list_a;
+	t_clst	list_b;
 	int		size;
 
 	size = 100;

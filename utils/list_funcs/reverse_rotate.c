@@ -12,7 +12,7 @@
 
 #include "cyclic_list.h"
 
-int	reverse_rotate(t_list *list)
+int	reverse_rotate(t_clst *list)
 {
 	if (list->size < 1)
 	{
@@ -22,7 +22,7 @@ int	reverse_rotate(t_list *list)
 	return (0);
 }
 
-int	rra(t_list *list_a)
+int	rra(t_clst *list_a)
 {
 	if (reverse_rotate(list_a))
 	{
@@ -32,7 +32,7 @@ int	rra(t_list *list_a)
 	return (0);
 }
 
-int	rrb(t_list *list_b)
+int	rrb(t_clst *list_b)
 {
 	if (reverse_rotate(list_b))
 	{
@@ -42,7 +42,7 @@ int	rrb(t_list *list_b)
 	return (0);
 }
 
-int	rrr(t_list *list_a, t_list *list_b)
+int	rrr(t_clst *list_a, t_clst *list_b)
 {
 	if (reverse_rotate(list_a) || reverse_rotate(list_b))
 	{

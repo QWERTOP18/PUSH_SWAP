@@ -16,12 +16,14 @@
 //memory leakしたらlst_a,kst_bを引数にとる
 void ft_exit(int status)
 {
+    printf("exit with %d\n", status);
+    if(status == E_NONE)
+        exit(0);
     write(2,"Error\n",6);
-    exit(0);
+    exit(status);
 }
-t_err	build(t_list *list_a, t_list *list_b)
+t_err	build(t_clst *list_a, t_clst *list_b)
 {
-	t_cnt	count;
 
 	if (check_sorted(list_a, list_a->head))
 		return (E_NONE);
@@ -33,21 +35,26 @@ t_err	build(t_list *list_a, t_list *list_b)
 	else
 		return (E_OPERATION);
 }
-int main(int argc,char **argv) {
-    t_list *list_a;
-    t_list *list_b;
+
+
+
+int main(int argc,char **argv)
+{
+    t_clst *list_a;
+    t_clst *list_b;
     if (argc == 1)
         return 0;
     list_a = format_input(argc,argv);
+    write(1,"43",2);
     if(!list_a)
        ft_exit(E_ALLOCATE); 
-    list_b = lst_alloc(list_a->capacity);
+    list_b = clst_new(list_a->capacity);
     if(!list_b)
        ft_exit(E_ALLOCATE);
     if(build(list_a, list_b))
         ft_exit(E_OPERATION);
-    lst_clear(list_a);
-    lstclear(list_b);
+    clst_clear(list_a);
+    clst_clear(list_b);
     return E_NONE;
     //ft_exit(E_NONE);
 }
