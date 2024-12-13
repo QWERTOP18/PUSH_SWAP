@@ -1,23 +1,6 @@
 #include "push_swap.h"
+# include "ft_math.h"
 
-int	min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-int	max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-int	abs(int a)
-{
-	if (a < 0)
-		return (-a);
-	return (a);
-}
 /*
  *rotate a,b,r(ab)の回数を最適化して
  *合計回数を返す
@@ -92,10 +75,6 @@ void	update_cnt(t_cnt *tmp, t_cnt *ret)
 	}
 }
 
-/*
- *構造体の一括代入はできる？return valueとして構造体を返したいが
- *呼び出し側の初期化が大変そう
- */
 void	calculate(t_list *list_a, t_list *list_b, t_cnt *ret_cnt)
 {
 	int		idx_b;

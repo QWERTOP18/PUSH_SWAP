@@ -12,22 +12,6 @@
 
 #include "cyclic_list.h"
 
-#ifdef TEST
-void	printlst(t_list *list)
-{
-	int	i;
-
-	ft_printf("--->list<---\n");
-	i = 0;
-	while (i < list->size)
-	{
-		ft_printf("%d ", list->data[(list->head + i) % list->size]);
-		i++;
-	}
-	ft_printf("\n");
-}
-#endif
-
 void	lstinsert(t_list *list, int element)
 {
 	int	pos;

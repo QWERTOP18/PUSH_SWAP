@@ -36,7 +36,7 @@ int	sa(t_list *list_a)
 	{
 		return (1);
 	}
-	ft_printf("sa\n");
+	write(1,"sa\n",3);
 	return (0);
 }
 
@@ -46,7 +46,7 @@ int	sb(t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("sb\n");
+	write(1,"sb\n",3);
 	return (0);
 }
 
@@ -56,7 +56,7 @@ int	ss(t_list *list_a, t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("ss\n");
+	write(1,"ss\n",3);
 	return (0);
 }
 

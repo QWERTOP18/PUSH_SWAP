@@ -31,7 +31,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
+char	**split_free(char **tab);
+size_t	ft_count_words(char const *s, char c);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
@@ -79,21 +80,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
-// typedef enum e_ctype
-// {
-// 	_ISUPPER = _ISBIT(0),
-// 	_ISLOWER = _ISBIT(1),
-// 	_ISALPHA = _ISBIT(2),
-// 	_ISDIGIT = _ISBIT(3),
-// 	_ISXDIGIT = _ISBIT(4),
-// 	_ISSPACE = _ISBIT(5),
-// 	_ISPRINT = _ISBIT(6),
-// 	_ISGRAPH = _ISBIT(7),
-// 	_ISBLANK = _ISBIT(8),
-// 	_ISCNTRL = _ISBIT(9),
-// 	_ISPUNCT = _ISBIT(10),
-// 	_ISALNUM = _ISBIT(11)
-// }					t_ctype;
+
 
 typedef enum e_ctype
 {

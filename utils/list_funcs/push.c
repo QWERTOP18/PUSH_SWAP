@@ -32,7 +32,7 @@ int	pa(t_list *list_a, t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("pa\n");
+	write(1,"pa\n",3);
 	return (0);
 }
 
@@ -42,7 +42,7 @@ int	pb(t_list *list_a, t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("pb\n");
+	write(1,"pb\n",3);
 	return (0);
 }
 

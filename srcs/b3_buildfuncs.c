@@ -1,6 +1,8 @@
 #include "error.h"
 #include "push_swap.h"
 
+
+
 int	select_direction(int idx, int list_size)
 {
 	if (2 * idx > list_size)

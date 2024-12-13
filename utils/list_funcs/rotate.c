@@ -28,7 +28,7 @@ int	ra(t_list *list_a)
 	{
 		return (1);
 	}
-	ft_printf("ra\n");
+	write(1,"ra\n",3);
 	return (0);
 }
 
@@ -38,7 +38,7 @@ int	rb(t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("rb\n");
+	write(1,"rb\n",3);
 	return (0);
 }
 int	rr(t_list *list_a, t_list *list_b)
@@ -47,7 +47,7 @@ int	rr(t_list *list_a, t_list *list_b)
 	{
 		return (1);
 	}
-	ft_printf("rr\n");
+	write(1,"rr\n",3);
 	return (0);
 }
 

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "error.h"
 
 t_err	handle_rotation(t_list *list_a, t_list *list_b, t_cnt *cnt)
 {

@@ -13,12 +13,9 @@
 #ifndef CYCLIC_LIST_H
 # define CYCLIC_LIST_H
 
-# define ft_printf printf //あとで消す
-# define ft_calloc calloc
-
-# include <stddef.h>
-# include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
+# include "../utils/libft/libft.h"
 
 # define SUCCESS 0
 # define ALLOCATE_FAILURE 1
@@ -36,8 +33,8 @@ typedef struct s_list
 /***** ***** ***** UTILS ****** ***** ****/
 int		nextid(const t_list *list);
 int		previd(const t_list *list);
-int		lstalloc(t_list *list, int size, int capacity);
-void	lstfree(t_list *list);
+t_list *lst_alloc(int capa);
+void	lst_clear(t_list *list);
 void	lstinsert(t_list *list, int element);
 void	lstremove(t_list *list);
 
@@ -53,8 +50,4 @@ int		rr(t_list *list_a, t_list *list_b);
 int		rra(t_list *list_a);
 int		rrb(t_list *list_b);
 int		rrr(t_list *list_a, t_list *list_b);
-
-
-void	printlst(t_list *list);
-
 #endif

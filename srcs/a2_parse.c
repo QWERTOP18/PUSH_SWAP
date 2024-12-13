@@ -1,6 +1,6 @@
-#include "cyclic_list.h"
+#include "push_swap.h"
 #include "error.h"
-
+# include "ft_math.h"
 t_err	check_duplicate(const t_list *list)
 {
 	int	id1;
@@ -13,38 +13,58 @@ t_err	check_duplicate(const t_list *list)
 		while (id2 < list->size)
 		{
 			if (list->data[id1] == list->data[id2])
-				return (E_NONE);
+				return (E_DUPLICATE_VALUE);
 			id2++;
 		}
 		id1++;
 	}
-	return (E_DUPLICATE_VALUE);
+	return (E_NONE);
 }
 
-t_err    extract(t_list *list_a,t_list *list_b, int size, char **array)
+t_err store_as_array(t_list *list_a,char **args)
 {
-	if (lstalloc(list_a, size,size) || lstalloc(list_b, 0,size))
-	    return (E_ALLOCATE);
-	int ptr;
-	ptr = 0;
-	while (ptr < size)
-	{
-		//atoiでオーバーフローしたら０を返すようにする
-		if (ft_atoi(array[ptr]) == 0 && ft_strcmp(array[ptr], "0")!= 0)
-            return (E_INVALID_INPUT);
-        list_a->data[ptr] = ft_atoi(array[ptr]);
-        ptr++;
-	}
-	return (check_duplicate);
+    int next_num;
+
+    while(*args)
+    {
+        next_num = bijective_atoi(*args);
+        if(next_num==0 && *args!='0')
+        {
+            lst_free(list_a);
+            return E_INVALID_INPUT;
+        }
+        list_a->data[list_a->size++] = next_num; 
+    }
+    return E_NONE;
 }
 
-char **input_array(int argc,char **argv)
+t_list *format_input(int argc, char **argv)
 {
-if (argc == 2)
-	{
-		return (ft_split(argv[1],' '));
-	}	
+    char **args;
+    t_list *list_a;
+    if (argc==2)
+    {
+        args = ft_split(argv[1],' ');
+        if (args==NULL)
+            ft_exit(E_ALLOCATE);
+        list_a = lst_alloc(ft_count_words(argv[1],' '));
+        if (list_a==NULL)
+            ft_exit(E_ALLOCATE);
+        if(store_as_array(list_a,args))
+            ft_exit(E_INVALID_INPUT);
+        split_free(args);
+    }
+    else if(argc>2)
+    {
+        list_a = lst_alloc(argc-1);
+        list_a = store_as_array(list_a,&argv[1]);
+    }
+	if (check_duplicate(list_a))
+		ft_exit(E_DUPLICATE_VALUE);
+    return list_a;
 }
+
+
 
 // t_err format(int argc, char **argv,int *size, char ***array)
 // {

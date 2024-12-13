@@ -40,6 +40,7 @@ static long	ft_strtol(const char *str)
 	return ((long)sign * result);
 }
 
+
 int	ft_atoi(const char *str)
 {
 	if (!str)
