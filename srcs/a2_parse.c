@@ -38,30 +38,38 @@ t_err    extract(t_list *list_a,t_list *list_b, int size, char **array)
 	return (check_duplicate);
 }
 
-t_err format(int argc, char **argv,int *size, char ***array)
+char **input_array(int argc,char **argv)
 {
-	int ptr;
-	if (argc <2)
-		return (E_INVALID_INPUT);
-	else if (argc == 2)
+if (argc == 2)
 	{
-		*size = ft_count_words(argv[1]);
-		*array = ft_split(argv[1],' ');
-		if (!*array)
-		    return (E_ALLOCATE);
-		return (E_NONE);
-	}
-	*size = argc - 1;
-	*array = malloc(sizeof(char *) * (*size + 1));
-	if (!*array)
-		return (E_ALLOCATE);
-	ptr = 1;
-	while (ptr < argc)
-	{
-		(*array)[ptr] = ft_strdup(argv[ptr]);
-		if (!(*array)[ptr])
-			return (E_ALLOCATE);
-		ptr++;
-	}
-	return (E_NONE);
+		return (ft_split(argv[1],' '));
+	}	
 }
+
+// t_err format(int argc, char **argv,int *size, char ***array)
+// {
+// 	int ptr;
+// 	if (argc <2)
+// 		return (E_INVALID_INPUT);
+// 	else if (argc == 2)
+// 	{
+// 		*size = ft_count_words(argv[1]);
+// 		*array = ft_split(argv[1],' ');
+// 		if (!*array)
+// 		    return (E_ALLOCATE);
+// 		return (E_NONE);
+// 	}
+// 	*size = argc - 1;
+// 	*array = malloc(sizeof(char *) * (*size + 1));
+// 	if (!*array)
+// 		return (E_ALLOCATE);
+// 	ptr = 1;
+// 	while (ptr < argc)
+// 	{
+// 		(*array)[ptr] = ft_strdup(argv[ptr]);
+// 		if (!(*array)[ptr])
+// 			return (E_ALLOCATE);
+// 		ptr++;
+// 	}
+// 	return (E_NONE);
+// }

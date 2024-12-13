@@ -54,7 +54,7 @@ int		rra(t_list *list_a);
 int		rrb(t_list *list_b);
 int		rrr(t_list *list_a, t_list *list_b);
 
-# ifdef TEST
+
 void	printlst(t_list *list);
-# endif
+
 #endif
