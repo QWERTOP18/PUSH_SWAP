@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "error.h"
+
 #include "push_swap.h"
 
 int	select_direction(int idx, int list_size)
@@ -22,9 +22,8 @@ int	select_direction(int idx, int list_size)
 	return (idx);
 }
 
-t_err	alignby_rotate(t_clst *list)
+void	alignby_rotate(t_clst *list)
 {
-	t_err	err;
 	int		dist;
 	int		min_val;
 	int		idx;
@@ -43,16 +42,11 @@ t_err	alignby_rotate(t_clst *list)
 	}
 	dist = select_direction(dist, list->size);
 	if (dist > 0)
-	{
 		while (dist--)
-			err = ra(list);
-	}
+			ra(list);
 	else
-	{
 		while (dist++)
-			err = rra(list);
-	}
-	return (err);
+			rra(list);
 }
 
 int	check_sorted(t_clst *list, int head)
