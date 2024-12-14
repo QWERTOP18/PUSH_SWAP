@@ -21,8 +21,6 @@ int	push(t_clst *list_from, t_clst *list_to)
 		return (1);
 	}
 	push_val = list_from->data[list_from->head];
-	printf("pushing %d sizefrom:%d to:%d\n", push_val, list_from->size,
-		list_to->size);
 	clst_remove(list_from);
 	clst_insert(list_to, push_val);
 	return (0);

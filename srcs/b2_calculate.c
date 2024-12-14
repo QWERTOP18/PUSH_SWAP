@@ -20,14 +20,14 @@ int	optimize_cnt(t_cnt *cnt)
 		cnt->r = ft_min(cnt->a, cnt->b);
 		cnt->a -= cnt->r;
 		cnt->b -= cnt->r;
-		return (cnt->a + cnt->b - cnt->r);
+		return (ft_max(cnt->a, cnt->b));
 	}
 	if (cnt->a < 0 && cnt->b < 0)
 	{
 		cnt->r = ft_max(cnt->a, cnt->b);
 		cnt->a -= cnt->r;
 		cnt->b -= cnt->r;
-		return (-(cnt->a + cnt->b - cnt->r));
+		return (-ft_min(cnt->a ,cnt->b));
 	}
 	cnt->r = 0;
 	return (ft_abs(cnt->a - cnt->b));
