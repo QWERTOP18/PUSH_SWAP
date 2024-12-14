@@ -24,7 +24,6 @@ t_err	check_duplicate(const t_clst *list)
 t_err store_as_array(t_clst *list_a,char **args)
 {
     int next_num;
-
     while(*args)
     {
         next_num = bijective_atoi(*args);
@@ -34,6 +33,7 @@ t_err store_as_array(t_clst *list_a,char **args)
             return E_INVALID_INPUT;
         }
         list_a->data[list_a->size++] = next_num; 
+        args++;
     }
     return E_NONE;
 }

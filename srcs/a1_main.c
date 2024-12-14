@@ -45,7 +45,6 @@ int main(int argc,char **argv)
     if (argc == 1)
         return 0;
     list_a = format_input(argc,argv);
-    write(1,"43",2);
     if(!list_a)
        ft_exit(E_ALLOCATE); 
     list_b = clst_new(list_a->capacity);
@@ -56,6 +55,5 @@ int main(int argc,char **argv)
     clst_clear(list_a);
     clst_clear(list_b);
     return E_NONE;
-    //ft_exit(E_NONE);
 }
 
