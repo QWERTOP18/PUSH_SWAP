@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   b2_handler.c                                       :+:      :+:    :+:   */
+/*   b1_handler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:01:52 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 16:39:26 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:10:49 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "error.h"
+#include "push_swap.h"
 
 t_err	handle_rotation(t_clst *list_a, t_clst *list_b, t_cnt *cnt)
 {
 	t_err	err;
-	
+
 	if (cnt->r > 0)
 		while (cnt->r-- > 0)
 			err = rr(list_a, list_b);
@@ -65,24 +65,26 @@ void	handle_pusha(t_clst *list_a, t_clst *list_b)
 	{
 		calculate(list_a, list_b, &count);
 		// count = calculate(list_a, list_b);
-		printf("%d %d %d\n", count.a, count.b, count.r);
 		printf("\n");
-		printf("A:%d %d B:%d %d\n", list_a->data[list_a->head],list_a->head,list_b->data[list_b->head],list_b->head);
 		handle_rotation(list_a, list_b, &count);
 		pa(list_a, list_b);
-		printf("A:%d B:%d\n", list_a->data[list_a->head],list_b->data[list_b->head]);
-
-	//debug
-			for (int i = 0; i < list_a->size; i++)
-			{
-				printf("%d ",list_a->data[(list_a->head+i)%list_a->size]);
-			}
-			printf("\n");
-			for (int i = 0; i < list_b->size; i++)
-			{
-				printf("%d ",list_b->data[(list_b->head+i)%list_b->size]);
-			}
-			printf("\n");
+		// debug
+		printf("--------------count %d %d %d-----------------\n", count.a,
+			count.b, count.r);
+		printf("A:head:%d id:%d\nB:head:%d id:%d\n", list_a->data[list_a->head],
+			list_a->head, list_b->data[list_b->head], list_b->head);
+		printf("A: ");
+		for (int i = 0; i < list_a->size; i++)
+		{
+			printf("%d ", list_a->data[(list_a->head + i) % list_a->size]);
+		}
+		printf("\n");
+		printf("B: ");
+		for (int i = 0; i < list_b->size; i++)
+		{
+			printf("%d ", list_b->data[(list_b->head + i) % list_b->size]);
+		}
+		printf("\n");
 	}
 }
 #ifdef TEST_HANDLER

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:36:13 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:18:44 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	clst_remove(t_clst *list)
 		pos++;
 	}
 	list->size--;
+	if (list->size)
+		list->head = (list->head) % list->size;
 }
 
 int	nextid(const t_clst *list)
@@ -46,6 +48,6 @@ int	nextid(const t_clst *list)
 
 int	previd(const t_clst *list)
 {
-	//return ((list->head + list->size) % list->size);
+	// return ((list->head + list->size) % list->size);
 	return ((list->head + list->size - 1) % list->size);
 }

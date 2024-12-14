@@ -1,76 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   a1_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:06:45 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/08 20:50:44 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:56:55 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "error.h"
+#include "push_swap.h"
 
-//memory leakしたらlst_a,kst_bを引数にとる
-void ft_exit(int status)
+// memory leakしたらlst_a,kst_bを引数にとる
+void	ft_exit(int status)
 {
-    printf("exit with %d\n", status);
-    if(status == E_NONE)
-        exit(0);
-    write(2,"Error\n",6);
-    exit(status);
+	printf("exit with %d\n", status);
+	if (status == E_NONE)
+		exit(0);
+	write(2, "Error\n", 6);
+	exit(status);
 }
 t_err	build(t_clst *list_a, t_clst *list_b)
 {
 	if (check_sorted(list_a, list_a->head))
 		return (E_NONE);
 	handle_pushb(list_a, list_b);
-    printf("\n\n");
-    for (int i = 0; i < list_a->size; i++)
-    {
-        printf("%d ",list_a->data[(list_a->head+i)%list_a->size]);
-    }
-    printf("\n");
-    for (int i = 0; i < list_b->size; i++)
-    {
-        printf("%d ",list_b->data[(list_b->head+i)%list_b->size]);
-    }
-    printf("\n\n");
+	printf("\n\n");
+	for (int i = 0; i < list_a->size; i++)
+	{
+		printf("%d ", list_a->data[(list_a->head + i) % list_a->size]);
+	}
+	printf("\n");
+	for (int i = 0; i < list_b->size; i++)
+	{
+		printf("%d ", list_b->data[(list_b->head + i) % list_b->size]);
+	}
+	printf("\n\n");
 	handle_pusha(list_a, list_b);
 	alignby_rotate(list_a);
-    printf("%d\n",list_a->size);
-    printf("%d\n",list_a->capacity);
-    for (int i = 0; i < list_a->size; i++)
-    {
-        printf("%d ",list_a->data[(list_a->head+i)%list_a->size]);
-    }
-    
+	printf("\n------final result------\n");
+	for (int i = 0; i < list_a->size; i++)
+	{
+		printf("%d ", list_a->data[(list_a->head + i) % list_a->size]);
+	}
 	if (check_sorted(list_a, list_a->head))
 		return (E_NONE);
 	else
 		return (E_OPERATION);
 }
 
-
-
-int main(int argc,char **argv)
+int	main(int argc, char **argv)
 {
-    t_clst *list_a;
-    t_clst *list_b;
-    if (argc == 1)
-        return 0;
-    list_a = format_input(argc,argv);
-    if(!list_a)
-       ft_exit(E_ALLOCATE); 
-    list_b = clst_new(list_a->capacity);
-    if(!list_b)
-       ft_exit(E_ALLOCATE);
-    if(build(list_a, list_b))
-        ft_exit(E_OPERATION);
-    clst_clear(list_a);
-    clst_clear(list_b);
-    return E_NONE;
-}
+	t_clst	*list_a;
+	t_clst	*list_b;
 
+	if (argc == 1)
+		return (0);
+	list_a = format_input(argc, argv);
+	if (!list_a)
+		ft_exit(E_ALLOCATE);
+	list_b = clst_new(list_a->capacity);
+	if (!list_b)
+		ft_exit(E_ALLOCATE);
+	if (build(list_a, list_b))
+		ft_exit(E_OPERATION);
+	clst_clear(list_a);
+	clst_clear(list_b);
+	return (E_NONE);
+}
