@@ -15,22 +15,24 @@
 
 int	optimize_cnt(t_cnt *cnt)
 {
+	int total;
+
+	total = ft_max(ft_abs(cnt->a),ft_abs(cnt->b));
 	if (cnt->a > 0 && cnt->b > 0)
 	{
 		cnt->r = ft_min(cnt->a, cnt->b);
 		cnt->a -= cnt->r;
 		cnt->b -= cnt->r;
-		return (ft_max(cnt->a, cnt->b));
 	}
-	if (cnt->a < 0 && cnt->b < 0)
+	else if (cnt->a < 0 && cnt->b < 0)
 	{
 		cnt->r = ft_max(cnt->a, cnt->b);
 		cnt->a -= cnt->r;
 		cnt->b -= cnt->r;
-		return (-ft_min(cnt->a ,cnt->b));
 	}
-	cnt->r = 0;
-	return (ft_abs(cnt->a - cnt->b));
+	else
+		return (ft_abs(cnt->a - cnt->b));
+	return total;
 }
 
 int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
