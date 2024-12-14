@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util_math.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 22:44:38 by ymizukam          #+#    #+#             */
+/*   Updated: 2024/12/14 22:45:32 by ymizukam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <limits.h>
 
@@ -7,12 +18,14 @@ int	ft_min(int a, int b)
 		return (a);
 	return (b);
 }
+
 int	ft_max(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
+
 int	ft_abs(int a)
 {
 	if (a < 0)
@@ -22,8 +35,8 @@ int	ft_abs(int a)
 
 int	bijective_atoi(const char *str)
 {
-	long long result;
-	int sign;
+	long long	result;
+	int			sign;
 
 	sign = 1;
 	result = 0;

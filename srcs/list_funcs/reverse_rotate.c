@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:36:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:12:30 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:42:55 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	rra(t_clst *list_a)
 	{
 		return (1);
 	}
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 	return (0);
 }
 
@@ -38,7 +38,7 @@ int	rrb(t_clst *list_b)
 	{
 		return (1);
 	}
-	write(1,"rrb\n",4);
+	write(1, "rrb\n", 4);
 	return (0);
 }
 
@@ -48,6 +48,6 @@ int	rrr(t_clst *list_a, t_clst *list_b)
 	{
 		return (1);
 	}
-	write(1,"rrr\n",4);
+	write(1, "rrr\n", 4);
 	return (0);
 }

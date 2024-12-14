@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:36:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:12:10 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:45:22 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ra(t_clst *list_a)
 	{
 		return (1);
 	}
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 	return (0);
 }
 
@@ -38,16 +38,17 @@ int	rb(t_clst *list_b)
 	{
 		return (1);
 	}
-	write(1,"rb\n",3);
+	write(1, "rb\n", 3);
 	return (0);
 }
+
 int	rr(t_clst *list_a, t_clst *list_b)
 {
 	if (rotate(list_a) || rotate(list_b))
 	{
 		return (1);
 	}
-	write(1,"rr\n",3);
+	write(1, "rr\n", 3);
 	return (0);
 }
 

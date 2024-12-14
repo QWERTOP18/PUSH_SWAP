@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:34:12 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/10/31 13:16:28 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:44:51 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static long	ft_strtol(const char *str)
 	}
 	return ((long)sign * result);
 }
-
 
 int	ft_atoi(const char *str)
 {

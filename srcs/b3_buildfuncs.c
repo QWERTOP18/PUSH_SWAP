@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   b3_buildfuncs.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/14 22:44:25 by ymizukam          #+#    #+#             */
+/*   Updated: 2024/12/14 22:46:14 by ymizukam         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "error.h"
 #include "push_swap.h"
-
-
 
 int	select_direction(int idx, int list_size)
 {
@@ -11,9 +21,7 @@ int	select_direction(int idx, int list_size)
 	}
 	return (idx);
 }
-/*
- *dist:= headと最小値までの距離
- */
+
 t_err	alignby_rotate(t_clst *list)
 {
 	t_err	err;
@@ -58,11 +66,10 @@ int	check_sorted(t_clst *list, int head)
 	{
 		if (list->data[(i + head) % list->size] > list->data[(i + head + 1)
 			% list->size])
+		{
 			return (0);
+		}
 		i++;
 	}
 	return (1);
 }
-
-
-// cc ../utils/list_funcs/*.c  b*.c -DTEST_UTILS -I../includes

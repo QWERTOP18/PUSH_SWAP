@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 09:49:14 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/11/19 14:38:10 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:43:39 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <limits.h>
 # include <stddef.h>
 # include <stdint.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # ifdef DEBUG
 #  include <string.h>
@@ -31,8 +31,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-char	**split_free(char **tab);
-size_t	ft_count_words(char const *s, char c);
+char				**split_free(char **tab);
+size_t				ft_count_words(char const *s, char c);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
@@ -79,8 +79,6 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-
-
 
 typedef enum e_ctype
 {

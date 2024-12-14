@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:15 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/09 19:40:40 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:42:56 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	push(t_clst *list_from, t_clst *list_to)
 		return (1);
 	}
 	push_val = list_from->data[list_from->head];
-	printf("pushing %d sizefrom:%d to:%d\n",push_val,list_from->size,list_to->size);
+	printf("pushing %d sizefrom:%d to:%d\n", push_val, list_from->size,
+		list_to->size);
 	clst_remove(list_from);
 	clst_insert(list_to, push_val);
 	return (0);
@@ -33,7 +34,7 @@ int	pa(t_clst *list_a, t_clst *list_b)
 	{
 		return (1);
 	}
-	write(1,"pa\n",3);
+	write(1, "pa\n", 3);
 	return (0);
 }
 
@@ -43,7 +44,7 @@ int	pb(t_clst *list_a, t_clst *list_b)
 	{
 		return (1);
 	}
-	write(1,"pb\n",3);
+	write(1, "pb\n", 3);
 	return (0);
 }
 
@@ -80,8 +81,8 @@ int	pb(t_clst *list_a, t_clst *list_b)
 //     // テスト: pb (List A → List B)
 //     printf("\nPerforming pb...\n");
 //     pb(&list_a, &list_b);
-// 	pb(&list_a, &list_b);	
-// 	pb(&list_a, &list_b);	
+// 	pb(&list_a, &list_b);
+// 	pb(&list_a, &list_b);
 //     // 状態を確認
 //     printf("List A after pb: ");
 //     for (int i = 0; i < list_a.size; i++)
@@ -116,7 +117,7 @@ int	pb(t_clst *list_a, t_clst *list_b)
 // int main(void)
 // {
 //     test_push_operations();
-//     return 0;
+//     return (0);
 // }
 
 // #endif

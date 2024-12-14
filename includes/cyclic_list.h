@@ -6,16 +6,16 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 17:58:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:35:23 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:42:48 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CYCLIC_LIST_H
 # define CYCLIC_LIST_H
 
-# include <unistd.h>
-# include <stdlib.h>
 # include "../utils/libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 # define SUCCESS 0
 # define ALLOCATE_FAILURE 1
@@ -33,7 +33,7 @@ typedef struct s_clst
 /***** ***** ***** UTILS ****** ***** ****/
 int		nextid(const t_clst *list);
 int		previd(const t_clst *list);
-t_clst *clst_new(int capa);
+t_clst	*clst_new(int capa);
 void	clst_clear(t_clst *list);
 void	clst_insert(t_clst *list, int element);
 void	clst_remove(t_clst *list);

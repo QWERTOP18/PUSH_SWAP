@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:20:09 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:44:12 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	nextid(const t_clst *list)
 
 int	previd(const t_clst *list)
 {
-	// return ((list->head + list->size) % list->size);
 	return ((list->head + list->size - 1) % list->size);
 }

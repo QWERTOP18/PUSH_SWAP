@@ -6,15 +6,15 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:35 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/12 15:04:32 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:42:46 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "cyclic_list.h"
-# include <limits.h>
 # include "error.h"
+# include <limits.h>
 typedef struct s_cnt
 {
 	int	a;
@@ -23,8 +23,8 @@ typedef struct s_cnt
 }		t_cnt;
 
 /***** ***** ***** MAIN ****** ***** ****/
-void ft_exit(int status);
-t_clst *format_input(int argc, char **argv);
+void	ft_exit(int status);
+t_clst	*format_input(int argc, char **argv);
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
 int		optimize_cnt(t_cnt *cnt);
 int		find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_a);
