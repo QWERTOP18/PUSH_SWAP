@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include "../utils/libft/libft.h"
 
 # define SUCCESS 0
 # define ALLOCATE_FAILURE 1

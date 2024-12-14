@@ -1,9 +1,9 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I./includes
-
+INCLUDES = -I./includes
 
 SRCDIR = ./srcs
-UTILSDIR = ./utils/list_funcs
+UTILSDIR = $(SRCDIR)/list_funcs
 LIBFTDIR = ./utils/libft
 
 SRCS = \
@@ -12,8 +12,15 @@ SRCS = \
 	$(SRCDIR)/b1_handler.c \
 	$(SRCDIR)/b2_calculate.c \
 	$(SRCDIR)/b3_buildfuncs.c \
+	$(UTILSDIR)/list_heapq.c \
+	$(UTILSDIR)/push.c \
+	$(UTILSDIR)/rotate.c \
+	$(UTILSDIR)/util_math.c \
+	$(UTILSDIR)/list_utils.c \
+	$(UTILSDIR)/reverse_rotate.c \
+	$(UTILSDIR)/swap.c
 
-CLST = $(CLSTDIR)/libclst.a
+LIBFT = $(LIBFTDIR)/libft.a
 
 OBJS = $(SRCS:.c=.o)
 
@@ -21,11 +28,11 @@ NAME = push_swap
 
 all: $(NAME)
 
-$(NAME): $(CLST) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(CLST) -o $@
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
-$(CLST):
-	make -C $(UTILSDIR)
+$(LIBFT):
+	make -C $(LIBFTDIR)
 
 clean:
 	$(RM) $(OBJS)

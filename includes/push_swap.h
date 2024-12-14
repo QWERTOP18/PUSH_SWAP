@@ -12,7 +12,7 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../utils/list_funcs/cyclic_list.h"
+# include "cyclic_list.h"
 # include <limits.h>
 # include "error.h"
 typedef struct s_cnt
