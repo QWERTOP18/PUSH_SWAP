@@ -1,12 +1,13 @@
 
 #include <limits.h>
-int	min(int a, int b)
+
+int	ft_min(int a, int b)
 {
 	if (a < b)
 		return (a);
 	return (b);
 }
-int	max(int a, int b)
+int	ft_max(int a, int b)
 {
 	if (a > b)
 		return (a);
@@ -19,10 +20,10 @@ int	ft_abs(int a)
 	return (a);
 }
 
-int bijective_atoi(const char *str)
+int	bijective_atoi(const char *str)
 {
-	long long	result;
-	int		sign;
+	long long result;
+	int sign;
 
 	sign = 1;
 	result = 0;
@@ -38,7 +39,7 @@ int bijective_atoi(const char *str)
 			return (0);
 		str++;
 	}
-	if(*str)
-	    return (0);
+	if (*str)
+		return (0);
 	return (sign * result);
 }

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:01:52 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:10:49 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/14 22:28:22 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void	handle_pusha(t_clst *list_a, t_clst *list_b)
 		calculate(list_a, list_b, &count);
 		// count = calculate(list_a, list_b);
 		printf("\n");
+		printf("--------------count %d %d %d-----------------\n", count.a,
+			count.b, count.r);
 		handle_rotation(list_a, list_b, &count);
 		pa(list_a, list_b);
 		// debug
-		printf("--------------count %d %d %d-----------------\n", count.a,
-			count.b, count.r);
 		printf("A:head:%d id:%d\nB:head:%d id:%d\n", list_a->data[list_a->head],
 			list_a->head, list_b->data[list_b->head], list_b->head);
 		printf("A: ");
