@@ -23,10 +23,10 @@ int	optimize_cnt(t_cnt *cnt)
 		return (-(cnt->a + cnt->b - cnt->r));
 	}
 	cnt->r = 0;
-	return (abs(cnt->a - cnt->b));
+	return (ft_abs(cnt->a - cnt->b));
 }
 
-int	find_insert_idx(t_clst *list_a, t_clst *list_b, int idx_b)
+int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 {
 	int	idx_a;
 	int	curr_a;
@@ -46,11 +46,11 @@ int	find_insert_idx(t_clst *list_a, t_clst *list_b, int idx_b)
 		// if (prev_a < curr_a)
 		//     if (elem_b < prev_a || curr_a < elem_b)
 		//     return (idx_a);
-		if (curr_a > elem_b && elem_b > prev_a)
+		if (prev_a < elem_b && elem_b < curr_a)
 			return (idx_a);
 		//輪っかの切れ目
 		if (prev_a > curr_a)
-			if (elem_b > prev_a || curr_a > elem_b)
+			if (elem_b < curr_a || prev_a < elem_b )
 				return (idx_a);
 		idx_a++;
 	}

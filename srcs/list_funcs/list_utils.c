@@ -12,7 +12,7 @@
 
 #include "cyclic_list.h"
 
-void	clst_insert(t_clst *list, int element)
+void	clst_insert(t_clst *list, const int element)
 {
 	int	pos;
 
@@ -46,5 +46,6 @@ int	nextid(const t_clst *list)
 
 int	previd(const t_clst *list)
 {
+	//return ((list->head + list->size) % list->size);
 	return ((list->head + list->size - 1) % list->size);
 }

@@ -24,12 +24,29 @@ void ft_exit(int status)
 }
 t_err	build(t_clst *list_a, t_clst *list_b)
 {
-
 	if (check_sorted(list_a, list_a->head))
 		return (E_NONE);
 	handle_pushb(list_a, list_b);
+    printf("\n\n");
+    for (int i = 0; i < list_a->size; i++)
+    {
+        printf("%d ",list_a->data[(list_a->head+i)%list_a->size]);
+    }
+    printf("\n");
+    for (int i = 0; i < list_b->size; i++)
+    {
+        printf("%d ",list_b->data[(list_b->head+i)%list_b->size]);
+    }
+    printf("\n\n");
 	handle_pusha(list_a, list_b);
 	alignby_rotate(list_a);
+    printf("%d\n",list_a->size);
+    printf("%d\n",list_a->capacity);
+    for (int i = 0; i < list_a->size; i++)
+    {
+        printf("%d ",list_a->data[(list_a->head+i)%list_a->size]);
+    }
+    
 	if (check_sorted(list_a, list_a->head))
 		return (E_NONE);
 	else

@@ -27,7 +27,7 @@ void ft_exit(int status);
 t_clst *format_input(int argc, char **argv);
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
 int		optimize_cnt(t_cnt *cnt);
-int		find_insert_idx(t_clst *list_a, t_clst *list_b, int idx_a);
+int		find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_a);
 
 /***** ***** ***** BUILD ****** ***** ****/
 void	handle_pusha(t_clst *list_a, t_clst *list_b);
