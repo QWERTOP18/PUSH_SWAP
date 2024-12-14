@@ -86,7 +86,7 @@ void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt)
 		tmp_cnt.a = find_insert_idx(list_a, list_b, idx_b);
 		// tmp_cnt.b = -idx_b;
 		tmp_cnt.r = 0;
-		tmp_cnt.b = select_direction(-idx_b, list_b->size);
+		tmp_cnt.b = select_direction(idx_b, list_b->size);
 		tmp_cnt.a = select_direction(tmp_cnt.a, list_a->size);
 		// printf("calculate      a%d\tb%d\tr%d\n", tmp_cnt.a, tmp_cnt.b,
 		// tmp_cnt.r);

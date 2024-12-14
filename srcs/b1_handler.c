@@ -66,8 +66,11 @@ void	handle_pusha(t_clst *list_a, t_clst *list_b)
 		calculate(list_a, list_b, &count);
 		// count = calculate(list_a, list_b);
 		printf("%d %d %d\n", count.a, count.b, count.r);
+		printf("\n");
+		printf("A:%d %d B:%d %d\n", list_a->data[list_a->head],list_a->head,list_b->data[list_b->head],list_b->head);
 		handle_rotation(list_a, list_b, &count);
 		pa(list_a, list_b);
+		printf("A:%d B:%d\n", list_a->data[list_a->head],list_b->data[list_b->head]);
 
 	//debug
 			for (int i = 0; i < list_a->size; i++)
@@ -86,39 +89,11 @@ void	handle_pusha(t_clst *list_a, t_clst *list_b)
 
 int	main(int argc, char const *argv[])
 {
-	t_clst	list_a;
-	t_clst	list_b;
+	t_clst	*list_a;
+	t_clst	*list_b;
 	t_cnt	cnt;
 	int		size;
 
-	size = 5;
-	cnt.a = 0;
-	cnt.b = 0;
-	cnt.r = 2;
-	size = 10;
-	lstalloc(&list_a, size, size);
-	lstalloc(&list_b, 0, size);
-	for (size_t i = 0; i < size; i++)
-	{
-		list_a.data[i] = i + 1;
-	}
-	for (size_t i = 0; i < size / 2; i++)
-	{
-		pb(&list_a, &list_b);
-	}
-	printlst(&list_a);
-	printlst(&list_b);
-	handle_rotation(&list_a, &list_b, &cnt);
-	printlst(&list_a);
-	printlst(&list_b);
-	cnt.a = 4;
-	cnt.b = 0;
-	cnt.r = 0;
-	handle_rotation(&list_a, &list_b, &cnt);
-	printlst(&list_a);
-	printlst(&list_b);
-	lstfree(&list_a);
-	lstfree(&list_b);
 	return (0);
 }
 #endif
