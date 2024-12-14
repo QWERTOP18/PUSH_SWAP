@@ -1,5 +1,5 @@
+#include "ft_math.h"
 #include "push_swap.h"
-# include "ft_math.h"
 
 /*
  *rotate a,b,r(ab)の回数を最適化して
@@ -10,16 +10,16 @@ int	optimize_cnt(t_cnt *cnt)
 	// printf("before opt     a%d\tb%d\tr%d\n", cnt->a, cnt->b, cnt->r);
 	if (cnt->a > 0 && cnt->b > 0)
 	{
-		cnt->r = min(cnt->a, cnt->b);
+		cnt->r = ft_min(cnt->a, cnt->b);
 		cnt->a -= cnt->r;
 		cnt->b -= cnt->r;
 		return (cnt->a + cnt->b - cnt->r);
 	}
 	if (cnt->a < 0 && cnt->b < 0)
 	{
-		cnt->r = max(cnt->a, cnt->b);
-		cnt->a += cnt->r;
-		cnt->b += cnt->r;
+		cnt->r = ft_max(cnt->a, cnt->b);
+		cnt->a -= cnt->r;
+		cnt->b -= cnt->r;
 		return (-(cnt->a + cnt->b - cnt->r));
 	}
 	cnt->r = 0;
@@ -50,7 +50,7 @@ int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 			return (idx_a);
 		//輪っかの切れ目
 		if (prev_a > curr_a)
-			if (elem_b < curr_a || prev_a < elem_b )
+			if (elem_b < curr_a || prev_a < elem_b)
 				return (idx_a);
 		idx_a++;
 	}
