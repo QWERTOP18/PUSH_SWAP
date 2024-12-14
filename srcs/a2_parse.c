@@ -51,7 +51,7 @@ t_err	store_as_array(t_clst *list_a, char **args)
 	}
 	return (E_NONE);
 }
-
+//todo 関数を分ける
 t_clst	*format_input(int argc, char **argv)
 {
 	char	**args;

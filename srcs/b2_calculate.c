@@ -13,6 +13,8 @@
 #include "ft_math.h"
 #include "push_swap.h"
 
+
+//流石に関数を分ける
 int	optimize_cnt(t_cnt *cnt)
 {
 	int total;
@@ -72,6 +74,7 @@ void	update_cnt(t_cnt *tmp, t_cnt *ret)
 		min_total = tmp_total;
 		*ret = *tmp;
 	}
+	//equalの時の処理を考える！！！
 }
 
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt)
