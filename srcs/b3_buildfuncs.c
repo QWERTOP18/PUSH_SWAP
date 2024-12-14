@@ -58,14 +58,17 @@ t_err	alignby_rotate(t_clst *list)
 int	check_sorted(t_clst *list, int head)
 {
 	int	i;
+	int offset;
 
+    offset = list->head - head;
 	if (list->size <= 1)
 		return (1);
 	i = 0;
 	while (i < list->size - 1)
 	{
-		if (list->data[(i + head) % list->size] > list->data[(i + head + 1)
-			% list->size])
+		// if (list->data[(i + head) % list->size] > list->data[(i + head + 1)
+		// 	% list->size])
+		if(clst_get(list,i+offset) > clst_get(list,i+offset+1))
 		{
 			return (0);
 		}

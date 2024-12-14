@@ -33,6 +33,7 @@ typedef struct s_clst
 /***** ***** ***** UTILS ****** ***** ****/
 int		nextid(const t_clst *list);
 int		previd(const t_clst *list);
+int clst_get(const t_clst *list, const int idx);
 t_clst	*clst_new(int capa);
 void	clst_clear(t_clst *list);
 void	clst_insert(t_clst *list, int element);

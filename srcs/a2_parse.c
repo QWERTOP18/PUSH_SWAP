@@ -51,37 +51,42 @@ t_err	store_as_array(t_clst *list_a, char **args)
 	}
 	return (E_NONE);
 }
-//todo 関数を分ける
-t_clst	*format_input(int argc, char **argv)
+
+void parse_argv1(t_clst *list_a,char *argv1)
 {
 	char	**args;
+	args = ft_split(argv1, ' ');
+	if (args == NULL)
+		ft_exit(E_ALLOCATE,NULL,NULL);
+	list_a = clst_new(ft_count_words(argv1, ' '));
+	if (list_a == NULL)
+		ft_exit(E_ALLOCATE,list_a,NULL);
+	if (store_as_array(list_a, args))
+		ft_exit(E_INVALID_INPUT,list_a,NULL);
+	split_free(args);
+}
+
+t_clst	*format_input(int argc, char **argv)
+{
 	t_clst	*list_a;
 
 	list_a = NULL;
-	if (argc == 2)
+	if (argc == 1)
 	{
-		args = ft_split(argv[1], ' ');
-		if (args == NULL)
-			ft_exit(E_ALLOCATE);
-		list_a = clst_new(ft_count_words(argv[1], ' '));
-		if (list_a == NULL)
-			ft_exit(E_ALLOCATE);
-		if (store_as_array(list_a, args))
-			ft_exit(E_INVALID_INPUT);
-		split_free(args);
+		ft_exit(E_NONE,NULL,NULL);
 	}
-	else if (argc > 2)
+	else if (argc == 2)
 	{
-		list_a = clst_new(argc - 1);
-		if (store_as_array(list_a, &argv[1]))
-			ft_exit(E_INVALID_INPUT);
+		parse_argv1(list_a,argv[1]);
 	}
 	else
 	{
-		ft_exit(E_NONE);
+		list_a = clst_new(argc - 1);
+		if (store_as_array(list_a, &argv[1]))
+			ft_exit(E_INVALID_INPUT,list_a,NULL);
 	}
 	if (check_duplicate(list_a))
-		ft_exit(E_DUPLICATE_VALUE);
+		ft_exit(E_DUPLICATE_VALUE,list_a,NULL);
 	return (list_a);
 }
 

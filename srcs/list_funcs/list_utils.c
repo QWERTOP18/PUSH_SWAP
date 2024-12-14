@@ -40,6 +40,10 @@ void	clst_remove(t_clst *list)
 	if (list->size)
 		list->head = list->head % list->size;
 }
+int clst_get(const t_clst *list, const int idx)
+{
+	return list->data[(list->head + idx + list->size) % list->size];
+}
 
 int	nextid(const t_clst *list)
 {

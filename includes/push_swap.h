@@ -20,10 +20,11 @@ typedef struct s_cnt
 	int	a;
 	int	b;
 	int	r;
+	int sm;
 }		t_cnt;
 
 /***** ***** ***** MAIN ****** ***** ****/
-void	ft_exit(int status);
+void	ft_exit(int status,t_clst *list_a,t_clst *list_b);
 t_clst	*format_input(int argc, char **argv);
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
 int		optimize_cnt(t_cnt *cnt);
