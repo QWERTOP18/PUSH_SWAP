@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 18:06:45 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:46:38 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:32:14 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_exit(int status, t_clst *list_a, t_clst *list_b)
 	if (status == E_NONE)
 		exit(0);
 	write(2, "Error\n", 6);
-	exit(status);
+	exit(1);
 }
 
 t_err	build(t_clst *list_a, t_clst *list_b)
@@ -46,11 +46,11 @@ int	main(int argc, char **argv)
 		return (0);
 	list_a = format_input(argc, argv);
 	if (!list_a)
-		ft_exit(E_ALLOCATE,NULL,NULL);
+		ft_exit(E_ALLOCATE, NULL, NULL);
 	list_b = clst_new(list_a->capacity);
 	if (!list_b)
-		ft_exit(E_ALLOCATE,list_a,NULL);
-	if (build(list_a,list_b))
-		ft_exit(E_OPERATION,list_a,list_b);
-	ft_exit(E_NONE,list_a,list_b);
+		ft_exit(E_ALLOCATE, list_a, NULL);
+	if (build(list_a, list_b))
+		ft_exit(E_OPERATION, list_a, list_b);
+	ft_exit(E_NONE, list_a, list_b);
 }

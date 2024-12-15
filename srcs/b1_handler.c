@@ -6,16 +6,11 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:01:52 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:42:51 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:16:18 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-
-
-
-
 
 void	handle_rotation(t_clst *list_a, t_clst *list_b, t_cnt *cnt)
 {
@@ -26,7 +21,6 @@ void	handle_rotation(t_clst *list_a, t_clst *list_b, t_cnt *cnt)
 		while (cnt->r++ < 0)
 			rrr(list_a, list_b);
 	if (cnt->a > 0)
-
 		while (cnt->a-- > 0)
 			ra(list_a);
 	else

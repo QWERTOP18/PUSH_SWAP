@@ -6,10 +6,9 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:44:25 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:46:14 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:16:20 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -24,9 +23,9 @@ int	select_direction(int idx, int list_size)
 
 void	alignby_rotate(t_clst *list)
 {
-	int		dist;
-	int		min_val;
-	int		idx;
+	int	dist;
+	int	min_val;
+	int	idx;
 
 	dist = 0;
 	min_val = INT_MAX;
@@ -52,15 +51,15 @@ void	alignby_rotate(t_clst *list)
 int	check_sorted(t_clst *list, int head)
 {
 	int	i;
-	int offset;
+	int	offset;
 
-    offset = list->head - head;
+	offset = list->head - head;
 	if (list->size <= 1)
 		return (1);
 	i = 0;
 	while (i < list->size - 1)
 	{
-		if(clst_get(list,i+offset) > clst_get(list,i+offset+1))
+		if (clst_get(list, i + offset) > clst_get(list, i + offset + 1))
 		{
 			return (0);
 		}

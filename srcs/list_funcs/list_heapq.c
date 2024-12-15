@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:39:14 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:45:00 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:33:44 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_clst	*clst_new(int capa)
 
 void	clst_clear(t_clst *lst)
 {
-	if (!lst)
+	if (lst == NULL)
 		return ;
 	free(lst->data);
 	free(lst);

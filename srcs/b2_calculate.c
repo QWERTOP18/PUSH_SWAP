@@ -6,14 +6,12 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:38:56 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:42:50 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:16:56 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 #include "push_swap.h"
-
-
 
 int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 {
@@ -26,8 +24,8 @@ int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 	elem_b = list_b->data[(list_b->head + idx_b) % list_b->size];
 	while (idx_a < list_a->size)
 	{
-		curr_a = clst_get(list_a,idx_a);
-		prev_a = clst_get(list_a,idx_a-1);
+		curr_a = clst_get(list_a, idx_a);
+		prev_a = clst_get(list_a, idx_a - 1);
 		if (prev_a < elem_b && elem_b < curr_a)
 			return (idx_a);
 		if (prev_a > curr_a)
@@ -38,9 +36,9 @@ int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 	return (idx_a);
 }
 
-void optimize_cnt(t_cnt *cnt)
+void	optimize_cnt(t_cnt *cnt)
 {
-	cnt->total = ft_max(ft_abs(cnt->a),ft_abs(cnt->b));
+	cnt->total = ft_max(ft_abs(cnt->a), ft_abs(cnt->b));
 	if (cnt->a > 0 && cnt->b > 0)
 	{
 		cnt->r = ft_min(cnt->a, cnt->b);
@@ -56,10 +54,10 @@ void optimize_cnt(t_cnt *cnt)
 	else
 		cnt->total = ft_abs(cnt->a - cnt->b);
 }
+
 void	update_cnt(t_cnt *tmp, t_cnt *ret)
 {
 	static int	min_total;
-
 
 	if (tmp->b == 0)
 	{

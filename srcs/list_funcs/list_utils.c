@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 20:11:02 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:44:12 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:16:48 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ void	clst_remove(t_clst *list)
 	if (list->size)
 		list->head = list->head % list->size;
 }
-int clst_get(const t_clst *list, const int idx)
+
+int	clst_get(const t_clst *list, const int idx)
 {
-	return list->data[(list->head + idx + list->size) % list->size];
+	return (list->data[(list->head + idx + list->size) % list->size]);
 }
 
 int	nextid(const t_clst *list)

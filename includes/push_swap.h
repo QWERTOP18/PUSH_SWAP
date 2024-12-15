@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 19:56:35 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:42:46 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:17:03 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 # include "cyclic_list.h"
 # include "error.h"
 # include <limits.h>
+
 typedef struct s_cnt
 {
 	int	a;
 	int	b;
 	int	r;
-	int total;
+	int	total;
 }		t_cnt;
 
 /***** ***** ***** MAIN ****** ***** ****/
-void	ft_exit(int status,t_clst *list_a,t_clst *list_b);
+void	ft_exit(int status, t_clst *list_a, t_clst *list_b);
 t_clst	*format_input(int argc, char **argv);
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt);
 void	optimize_cnt(t_cnt *cnt);

@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 17:58:55 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/14 22:42:48 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 12:16:31 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_clst
 /***** ***** ***** UTILS ****** ***** ****/
 int		nextid(const t_clst *list);
 int		previd(const t_clst *list);
-int clst_get(const t_clst *list, const int idx);
+int		clst_get(const t_clst *list, const int idx);
 t_clst	*clst_new(int capa);
 void	clst_clear(t_clst *list);
 void	clst_insert(t_clst *list, int element);
