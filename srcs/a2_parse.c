@@ -6,7 +6,7 @@
 /*   By: ymizukam <ymizukam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:43:48 by ymizukam          #+#    #+#             */
-/*   Updated: 2024/12/15 12:39:10 by ymizukam         ###   ########.fr       */
+/*   Updated: 2024/12/15 13:22:31 by ymizukam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ t_err	store_as_array(t_clst *list_a, char **args)
 	return (E_NONE);
 }
 
-void	parse_argv1(t_clst *list_a, char *argv1)
+t_clst	*parse_argv1(char *argv1)
 {
 	char	**args;
+	t_clst	*list_a;
 
 	list_a = clst_new(ft_count_words(argv1, ' '));
 	if (list_a == NULL)
@@ -67,6 +68,9 @@ void	parse_argv1(t_clst *list_a, char *argv1)
 		ft_exit(E_INVALID_INPUT, list_a, NULL);
 	}
 	split_free(args);
+	if (check_duplicate(list_a))
+		ft_exit(E_DUPLICATE_VALUE, list_a, NULL);
+	return (list_a);
 }
 
 t_clst	*format_input(int argc, char **argv)
@@ -80,16 +84,18 @@ t_clst	*format_input(int argc, char **argv)
 	}
 	else if (argc == 2)
 	{
-		parse_argv1(list_a, argv[1]);
+		list_a = parse_argv1(argv[1]);
 	}
 	else
 	{
 		list_a = clst_new(argc - 1);
+		if (list_a == NULL)
+			ft_exit(E_ALLOCATE, NULL, NULL);
 		if (store_as_array(list_a, &argv[1]))
 			ft_exit(E_INVALID_INPUT, list_a, NULL);
+		if (check_duplicate(list_a))
+			ft_exit(E_DUPLICATE_VALUE, list_a, NULL);
 	}
-	if (check_duplicate(list_a))
-		ft_exit(E_DUPLICATE_VALUE, list_a, NULL);
 	return (list_a);
 }
 
