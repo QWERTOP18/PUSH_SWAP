@@ -52,7 +52,7 @@ int	sb(t_clst *list_b)
 
 int	ss(t_clst *list_a, t_clst *list_b)
 {
-	if (sa(list_a) || sb(list_b))
+	if (swap(list_a) || swap(list_b))
 	{
 		return (1);
 	}

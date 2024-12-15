@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "error.h"
 #include "ft_math.h"
-#include "push_swap.h"
 
 t_err	check_duplicate(const t_clst *list)
 {

@@ -26,8 +26,8 @@ int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 	elem_b = list_b->data[(list_b->head + idx_b) % list_b->size];
 	while (idx_a < list_a->size)
 	{
-		curr_a = clst_get(list_a,idx_a);//list_a->data[(list_a->head + idx_a) % list_a->size];
-		prev_a = clst_get(list_a,idx_a-1);//list_a->data[(list_a->head + idx_a - 1 + list_a->size)% list_a->size];
+		curr_a = clst_get(list_a,idx_a);
+		prev_a = clst_get(list_a,idx_a-1);
 		if (prev_a < elem_b && elem_b < curr_a)
 			return (idx_a);
 		if (prev_a > curr_a)
@@ -38,7 +38,6 @@ int	find_insert_idx(const t_clst *list_a, const t_clst *list_b, int idx_b)
 	return (idx_a);
 }
 
-//流石に関数を分ける
 void optimize_cnt(t_cnt *cnt)
 {
 	cnt->total = ft_max(ft_abs(cnt->a),ft_abs(cnt->b));
@@ -61,15 +60,17 @@ void	update_cnt(t_cnt *tmp, t_cnt *ret)
 {
 	static int	min_total;
 
+
 	if (tmp->b == 0)
+	{
 		min_total = INT_MAX;
+	}
 	optimize_cnt(tmp);
 	if (tmp->total < min_total)
 	{
 		min_total = tmp->total;
 		*ret = *tmp;
 	}
-	//equalの時の処理を考える！！！
 }
 
 void	calculate(t_clst *list_a, t_clst *list_b, t_cnt *ret_cnt)

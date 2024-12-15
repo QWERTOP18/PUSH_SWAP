@@ -60,8 +60,6 @@ int	check_sorted(t_clst *list, int head)
 	i = 0;
 	while (i < list->size - 1)
 	{
-		// if (list->data[(i + head) % list->size] > list->data[(i + head + 1)
-		// 	% list->size])
 		if(clst_get(list,i+offset) > clst_get(list,i+offset+1))
 		{
 			return (0);

@@ -54,5 +54,5 @@ int	bijective_atoi(const char *str)
 	}
 	if (*str)
 		return (0);
-	return (sign * result);
+	return (sign * (int)result);
 }
