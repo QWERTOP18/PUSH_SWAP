@@ -13,7 +13,6 @@
 #include "error.h"
 #include "push_swap.h"
 
-// printf("exit with %d\n", status);
 void	ft_exit(int status, t_clst *list_a, t_clst *list_b)
 {
 	clst_clear(list_a);
