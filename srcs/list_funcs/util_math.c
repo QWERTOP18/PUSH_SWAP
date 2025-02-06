@@ -48,8 +48,9 @@ int	bijective_atoi(const char *str)
 	while (*str && (*str >= '0' && *str <= '9'))
 	{
 		result = result * 10 + (*str - '0');
-		if (result > INT_MAX)
-			return (0);
+		if ((sign == 1 && result > INT_MAX) || (sign == -1 && result - 1 > INT_MAX)) {
+			return 0;
+		}
 		str++;
 	}
 	if (*str)
